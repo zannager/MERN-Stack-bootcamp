@@ -5,7 +5,6 @@
 // window.alert('learning js')
 // window.localStorage.removeItem('test')
 
-
 // var let cons
 //var
 // var n = 'greg'
@@ -25,6 +24,19 @@
 // alert(n2)
 
 //const
-const n4 = 'blue'
-n4 = 'black'
-alert('n4')
+// const n4 = "blue";
+// n4 = "black";
+// alert("n4");
+
+//const and object
+let obj = new Object(); // or can be written as: let obj={};
+obj = {
+  name: "ryan",
+};
+console.log(obj.name);
+
+const newObj = {
+  name: "greg",
+};
+newObj.name = "red";
+console.log(newObj.name);
