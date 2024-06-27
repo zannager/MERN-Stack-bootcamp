@@ -1,12 +1,8 @@
-// destructuring arrays
-const item = ["one", "two", "three"];
-console.log(item);
+// spread operator
 
-const [arr] = ["one", "two", "three"];
-console.log(arr);
+const ausCities = ["sydney", "melbourne", "brisbane"];
+const usCities = ["ny", "la", "ca"];
 
-const [, arr1] = ["one", "two", "three"];
-console.log(arr1);
+const allCities = [...ausCities, ...usCities];
 
-const [, , arr2] = ["one", "two", "three"];
-console.log(arr2);
+console.log(allCities.join(", "));
