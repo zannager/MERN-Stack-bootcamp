@@ -40,3 +40,16 @@ const newObj = {
 };
 newObj.name = "red";
 console.log(newObj.name);
+
+//template strings
+let fname = "ryan";
+let lname = "bangs";
+let age = prompt("guess ryan's age..");
+
+//old way
+// let result = fname + " " + lname + " is " + age + " years old";
+
+//new
+let result = `${fname} ${lname} is ${age} years old`;
+
+alert(result);
