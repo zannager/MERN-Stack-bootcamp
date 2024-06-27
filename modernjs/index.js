@@ -1,8 +1,17 @@
-// spread operator
+// rest operator
 
-const ausCities = ["sydney", "melbourne", "brisbane"];
-const usCities = ["ny", "la", "ca"];
+// const cities = ["sydney", "melbourne", "brisbane"];
+// cities.push("canberra");
+// const [first, ...rest] = cities;
 
-const allCities = [...ausCities, ...usCities];
+// console.log("FIRST =>", first);
+// console.log("REST =>", rest);
 
-console.log(allCities.join(", "));
+const user = {
+  name: "greg",
+  email: "red",
+  password: "passwprd",
+};
+
+const { password, ...rest } = user;
+console.log(rest);
