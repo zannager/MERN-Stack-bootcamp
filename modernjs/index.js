@@ -1,4 +1,4 @@
-// classes
+// extending classes
 
 class Holiday {
   //constructor
@@ -12,6 +12,23 @@ class Holiday {
   }
 }
 
-const trip = new Holiday("nepal", 30);
-console.log(trip.info());
-console.log(Holiday.prototype);
+class Expedtion extends Holiday {
+  constructor(destination, days, gear) {
+    //call the parent class constructor and pass the params
+    super(destination, days);
+    this.gear = gear;
+  }
+  info() {
+    super.info();
+    const [camera, ...rest] = this.gear;
+    console.log(`bring ${rest} and ${camera}`);
+  }
+}
+
+const travel = new Expedtion("everest", 30, [
+  "sunglasses",
+  "snowboots",
+  "camera",
+]);
+
+travel.info();
