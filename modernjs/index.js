@@ -1,17 +1,19 @@
-// rest operator
+// function and prototype
 
-// const cities = ["sydney", "melbourne", "brisbane"];
-// cities.push("canberra");
-// const [first, ...rest] = cities;
+function Holiday(destination, days) {
+  this.destination = destination;
+  this.days = days;
+}
 
-// console.log("FIRST =>", first);
-// console.log("REST =>", rest);
-
-const user = {
-  name: "greg",
-  email: "red",
-  password: "passwprd",
+Holiday.prototype.info = function () {
+  console.log(`${this.destination} | ${this.days}`);
 };
 
-const { password, ...rest } = user;
-console.log(rest);
+const nepal = new Holiday("nepal", 30);
+console.log(nepal.destination, nepal.days);
+
+const australia = new Holiday("Australia", 7);
+console.log(australia.destination, australia.days);
+
+nepal.info(); // Output: "nepal | 30"
+australia.info(); // Output: "Australia | 7"
