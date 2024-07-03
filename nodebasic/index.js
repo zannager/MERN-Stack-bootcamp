@@ -1,10 +1,8 @@
-// const helpers = require("./helpers");
+const http = require("http");
 
-// const total = helpers.sum(10, 200);
-// console.log(total);
+const server = http.createServer(function (req, res) {
+  res.writeHead(200, { "Content-type": "text/html" });
+  res.end("Hello from node");
+});
 
-//or
-const { sum } = require("./helpers");
-
-const total = sum(10, 100);
-console.log(total);
+server.listen(8000);
