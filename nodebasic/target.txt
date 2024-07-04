@@ -1,0 +1,2 @@
+greg norman
+this is target.txt file

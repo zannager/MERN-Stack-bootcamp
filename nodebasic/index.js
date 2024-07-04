@@ -1,8 +1,17 @@
-const http = require("http");
+//nodejs event loop
 
-const server = http.createServer(function (req, res) {
-  res.writeHead(200, { "Content-type": "text/html" });
-  res.end("Hello from node");
+const fs = require("fs");
+
+// fs.watch("target.txt", () => console.log("file changed"));
+// console.log("now watching target.txt for file changes");
+
+const fileName = "target.txt";
+
+fs.readFile(fileName, (err, data) => {
+  if (err) {
+    throw err;
+  }
+  console.log(data.toString());
 });
 
-server.listen(8000);
+console.log("watching target.txt - should be executed first"); //executed first since its easier to process
