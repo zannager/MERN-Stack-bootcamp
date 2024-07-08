@@ -8,10 +8,15 @@ function App() {
         <div className='col-md-6 offset-md-r'>
           <form>
             <div className='mb-3'>
-              <input className='form-control' type='text' />
+              <label className='form-label'>Email address</label>
+              <input type='email' className='form-control' />
+              <div className='form-text'>
+                We'll never share your email with anyone else.
+              </div>
             </div>
             <div className='mb-3'>
-              <input className='form-control' type='password' />
+              <label className='form-label'>Password</label>
+              <input type='password' className='form-control' />
             </div>
             <button type='submit' className='btn btn-primary'>
               Submit
