@@ -1,4 +1,4 @@
-//Making API request using fetch
+//Handling CORS error
 
 import { useState } from "react";
 const App = () => {
