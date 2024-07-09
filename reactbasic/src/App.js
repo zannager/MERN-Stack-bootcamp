@@ -1,7 +1,8 @@
-//Fetch to Axios
+//Reusable components
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Button from "./components/Button";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -43,6 +44,10 @@ const App = () => {
     //   .catch((err) => console.log(err));
   };
 
+  const testFunction = () => {
+    alert("this is just to test the new button function");
+  };
+
   return (
     <div className='container'>
       {/* <pre>{JSON.stringify(users, null, 4)}</pre> */}
@@ -54,9 +59,8 @@ const App = () => {
           </div>
         ))}
 
-      <button onClick={fetchUserData} className='btn btn-primary'>
-        fetch user data
-      </button>
+      <Button handleClick={fetchUserData} title='Fetch user data' />
+      <Button handleClick={testFunction} title='Testing button' />
 
       {posts && posts.map((post) => <div key={post.id}>{post.title}</div>)}
     </div>
