@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 
 //get post put delete
-app.get("/api", function (req, res) {
+app.get("/api/users", function (req, res) {
   //   res.send("hello from node api");
   res.json({
     users: [
@@ -16,7 +16,7 @@ app.get("/api", function (req, res) {
         age: 30,
       },
       {
-        name: "norm",
+        name: "norman",
         age: 20,
       },
     ],
