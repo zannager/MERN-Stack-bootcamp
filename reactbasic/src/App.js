@@ -1,9 +1,15 @@
-//Rendering data
+//External API request
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const App = () => {
   const [users, setUsers] = useState([]);
-  const fechUserData = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchUserData = () => {
     fetch(`http://localhost:8000/api/users`, {
       method: "GET",
     })
@@ -11,6 +17,17 @@ const App = () => {
         return response.json();
       })
       .then((data) => setUsers(data.users))
+      .catch((err) => console.log(err));
+  };
+
+  const fetchPosts = () => {
+    fetch(`https://jsonplaceholder.typicode.com/posts`, {
+      method: "GET",
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => setPosts(data))
       .catch((err) => console.log(err));
   };
 
@@ -25,9 +42,11 @@ const App = () => {
           </div>
         ))}
 
-      <button onClick={fechUserData} className='btn btn-primary'>
+      <button onClick={fetchUserData} className='btn btn-primary'>
         fetch user data
       </button>
+
+      {posts && posts.map((post) => <div key={post.id}>{post.title}</div>)}
     </div>
   );
 };
