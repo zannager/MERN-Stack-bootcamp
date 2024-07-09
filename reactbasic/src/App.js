@@ -1,6 +1,8 @@
-//External API request
+//Fetch to Axios
 
 import { useState, useEffect } from "react";
+import axios from "axios";
+
 const App = () => {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -10,25 +12,35 @@ const App = () => {
   }, []);
 
   const fetchUserData = () => {
-    fetch(`http://localhost:8000/api/users`, {
-      method: "GET",
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => setUsers(data.users))
+    axios
+      .get(`http://localhost:8000/api/users`)
+      .then(({ data }) => setUsers(data.users))
       .catch((err) => console.log(err));
+
+    // fetch(`http://localhost:8000/api/users`, {
+    //   method: "GET",
+    // })
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((data) => setUsers(data.users))
+    //   .catch((err) => console.log(err));
   };
 
   const fetchPosts = () => {
-    fetch(`https://jsonplaceholder.typicode.com/posts`, {
-      method: "GET",
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => setPosts(data))
+    axios
+      .get(`https://jsonplaceholder.typicode.com/posts`)
+      .then(({ data }) => setPosts(data))
       .catch((err) => console.log(err));
+
+    // fetch(`https://jsonplaceholder.typicode.com/posts`, {
+    //   method: "GET",
+    // })
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((data) => setPosts(data))
+    //   .catch((err) => console.log(err));
   };
 
   return (
