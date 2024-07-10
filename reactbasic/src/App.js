@@ -1,8 +1,7 @@
-//Reusable components
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Button from "./components/Button";
+import "./App.css";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -62,7 +61,19 @@ const App = () => {
       <Button handleClick={fetchUserData} title='Fetch user data' />
       <Button handleClick={testFunction} title='Testing button' />
 
-      {posts && posts.map((post) => <div key={post.id}>{post.title}</div>)}
+      {posts &&
+        posts.map((post) => (
+          <div
+            className='posts'
+            // style={{
+            //   backgroundColor: "indigo",
+            //   color: "white",
+            //   padding: "20px",
+            // }}
+            key={post.id}>
+            {post.title}
+          </div>
+        ))}
     </div>
   );
 };

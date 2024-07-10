@@ -1,4 +1,16 @@
-.App {
+/* CSS in React */
+/* body {
+  background-color: red;
+} */
+
+.posts {
+  background-color: indigo;
+  color: white;
+  border: 1px solid darkgray;
+  padding: 20px;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +47,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
