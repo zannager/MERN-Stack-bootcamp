@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Button from "./components/Button";
 import "./App.css";
-import styled from "styled-components";
+// import styled from "styled-components";
+import { List } from "antd";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -62,7 +63,13 @@ const App = () => {
       <Button handleClick={fetchUserData} title='Fetch user data' />
       <Button handleClick={testFunction} title='Testing button' />
 
-      {posts &&
+      <List
+        bordered
+        dataSource={posts}
+        renderItem={(item) => <List.Item>{item.title}</List.Item>}
+      />
+
+      {/* {posts &&
         posts.map((post) => (
           <PostList
             // className='posts'
@@ -74,16 +81,16 @@ const App = () => {
             key={post.id}>
             {post.title}
           </PostList>
-        ))}
+        ))} */}
     </div>
   );
 };
 
 export default App;
 
-const PostList = styled.div`
-  background-color: indigo;
-  color: white;
-  border: 1px solid darkgray;
-  padding: 20px;
-`;
+// const PostList = styled.div`
+//   background-color: indigo;
+//   color: white;
+//   border: 1px solid darkgray;
+//   padding: 20px;
+// `;
