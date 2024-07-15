@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Button from "./components/Button";
 import "./App.css";
+import styled from "styled-components";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -63,8 +64,8 @@ const App = () => {
 
       {posts &&
         posts.map((post) => (
-          <div
-            className='posts'
+          <PostList
+            // className='posts'
             // style={{
             //   backgroundColor: "indigo",
             //   color: "white",
@@ -72,10 +73,17 @@ const App = () => {
             // }}
             key={post.id}>
             {post.title}
-          </div>
+          </PostList>
         ))}
     </div>
   );
 };
 
 export default App;
+
+const PostList = styled.div`
+  background-color: indigo;
+  color: white;
+  border: 1px solid darkgray;
+  padding: 20px;
+`;
