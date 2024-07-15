@@ -4,10 +4,12 @@ import Button from "./components/Button";
 import "./App.css";
 // import styled from "styled-components";
 import { List } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const App = () => {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchPosts();
@@ -32,7 +34,10 @@ const App = () => {
   const fetchPosts = () => {
     axios
       .get(`https://jsonplaceholder.typicode.com/posts`)
-      .then(({ data }) => setPosts(data))
+      .then(({ data }) => {
+        setPosts(data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
 
     // fetch(`https://jsonplaceholder.typicode.com/posts`, {
@@ -48,6 +53,15 @@ const App = () => {
   const testFunction = () => {
     alert("this is just to test the new button function");
   };
+
+  if (loading) {
+    return (
+      <LoadingOutlined
+        className='display-1 text-center d-flex justify-content-center'
+        style={{ height: "100vh" }}
+      />
+    );
+  }
 
   return (
     <div className='container'>
