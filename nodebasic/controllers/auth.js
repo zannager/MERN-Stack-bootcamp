@@ -1,4 +1,4 @@
-exports.users = (req, res) => {
+export const users = (req, res) => {
   //   res.send("hello from node api");
   res.json({
     users: [

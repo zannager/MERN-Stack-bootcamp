@@ -1,12 +1,21 @@
 //using expressjs
 
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const morgan = require("morgan");
-const authRoutes = require("./routes/auth");
+// const express = require("express");
+// const cors = require("cors");
+// const mongoose = require("mongoose");
+// const morgan = require("morgan");
+// const authRoutes = require("./routes/auth");
 
-require("dotenv").config();
+// require("dotenv").config();
+
+import express from "express";
+import cors from "cors";
+import mongoose from "mongoose";
+import morgan from "morgan";
+import dotenv from "dotenv";
+import authRoutes from "./routes/auth.js";
+
+dotenv.config();
 
 const app = express();
 
