@@ -6,19 +6,18 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const authRoutes = require("./routes/auth");
 
+require("dotenv").config();
+
 const app = express();
 
 //db
 mongoose
-  .connect(
-    "mongodb+srv://projectOne:yGPw803U7b3JJKNw@merncamp.lhd1lgz.mongodb.net/?retryWrites=true&w=majority&appName=merncamp",
-    {
-      useNewUrlParser: true,
-      // useCreateIndex: true, --this is deprecated
-      // useFindAndModify: false, --this is deprecated
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.DATABASE, {
+    useNewUrlParser: true,
+    // useCreateIndex: true, --this is deprecated
+    // useFindAndModify: false, --this is deprecated
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("DB CONNECTED"))
   .catch((err) => console.log("DB connection error ", err));
 
