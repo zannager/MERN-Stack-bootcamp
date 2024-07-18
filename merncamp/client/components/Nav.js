@@ -1,8 +1,11 @@
+import { blue } from "@mui/material/colors";
 import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav className='nav bg-dark d-flex justify-content-center'>
+    <nav
+      className='nav d-flex justify-content-center'
+      style={{ backgroundColor: "blue" }}>
       <Link href='/' className='nav-link text-light'>
         Home
       </Link>
