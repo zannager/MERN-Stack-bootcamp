@@ -13,3 +13,10 @@ export const users = (req, res) => {
     ],
   });
 };
+
+export const register = (req, res) => {
+  const { name, email, password, secret } = req.body;
+  // Add your registration logic here
+  // For example, save the user data to the database
+  res.status(200).send({ message: "User registered successfully" });
+};

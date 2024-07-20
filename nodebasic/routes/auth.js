@@ -11,10 +11,11 @@
 //ES syntax
 
 import express from "express";
-import { users } from "../controllers/auth.js";
+import { users, register } from "../controllers/auth.js";
 
 const router = express.Router();
 
 router.get("/users", users);
+router.post("/register", register);
 
 export default router;
