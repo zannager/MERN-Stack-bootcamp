@@ -19,8 +19,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      min: 6,
-      max: 64,
+      minlength: 6,
+      maxlength: 64,
     },
     secret: {
       type: String,
@@ -34,4 +34,5 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+export default User;
