@@ -1,11 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [secret, setSecret] = useState("");
+  const [ok, setOk] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,8 +19,8 @@ const Register = () => {
         password,
         secret,
       })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => setOk(res.data.ok))
+      .catch((err) => console.log(err.response.data));
   };
 
   return (
