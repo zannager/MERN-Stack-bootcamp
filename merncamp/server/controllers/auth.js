@@ -15,40 +15,40 @@ export const register = async (req, res) => {
       .send("Password is required and must be 6 characters long");
   if (!secret) return res.status(400).send("Answer is required");
 
-  // const exist = await User.findOne({ email });
-  // if (exist) {
-  //   return res.status(400).send("Email is taken");
-  // }
+  const exist = await User.findOne({ email });
+  if (exist) {
+    return res.status(400).send("Email is taken");
+  }
 
-  // const hashedPassword = await hashPassword(password);
+  const hashedPassword = await hashPassword(password);
 
-  // const user = new User({ name, email, password: hashedPassword, secret });
+  const user = new User({ name, email, password: hashedPassword, secret });
+  try {
+    await user.save();
+    // console.log("REGISTERED USER =>", user);
+    return res.json({ ok: true });
+  } catch (err) {
+    console.log("REGISTER FAILED =>", err);
+    return res.status(400).send("Error, Try again.");
+  }
+
   // try {
+  //   const exist = await User.findOne({ email });
+  //   if (exist) {
+  //     return res.status(400).send("Email is taken");
+  //   }
+
+  //   const hashedPassword = await hashPassword(password);
+
+  //   const user = new User({ name, email, password: hashedPassword, secret });
   //   await user.save();
+
   //   console.log("REGISTERED USER =>", user);
   //   return res.json({ ok: true });
   // } catch (err) {
   //   console.log("REGISTER FAILED =>", err);
   //   return res.status(400).send("Error, Try again.");
   // }
-
-  try {
-    const exist = await User.findOne({ email });
-    if (exist) {
-      return res.status(400).send("Email is taken");
-    }
-
-    const hashedPassword = await hashPassword(password);
-
-    const user = new User({ name, email, password: hashedPassword, secret });
-    await user.save();
-
-    console.log("REGISTERED USER =>", user);
-    return res.json({ ok: true });
-  } catch (err) {
-    console.log("REGISTER FAILED =>", err);
-    return res.status(400).send("Error, Try again.");
-  }
 
   // res.send("User registered");
 };
