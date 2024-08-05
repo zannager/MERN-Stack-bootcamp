@@ -20,7 +20,7 @@ const Register = () => {
         secret,
       })
       .then((res) => setOk(res.data.ok))
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => toast(err.response.data));
   };
 
   return (
