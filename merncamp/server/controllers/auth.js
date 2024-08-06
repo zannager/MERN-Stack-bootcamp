@@ -3,8 +3,8 @@ import { hashPassword, comparePassword } from "../helpers/auth.js";
 
 export const register = async (req, res) => {
   console.log("REGISTER ENDPOINT =>", req.body);
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.send("User registered");
+  // res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  // res.send("User registered");
 
   const { name, email, password, secret } = req.body;
   //validation
@@ -29,7 +29,8 @@ export const register = async (req, res) => {
     return res.json({ ok: true });
   } catch (err) {
     console.log("REGISTER FAILED =>", err);
-    return res.status(400).send("Error, Try again.");
+    // return res.status(400).send("Error, Try again.");
+    return res.status(400).json({ error: "Error, try again." });
   }
 
   // try {

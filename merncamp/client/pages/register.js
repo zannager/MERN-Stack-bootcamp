@@ -9,18 +9,20 @@ const Register = () => {
   const [secret, setSecret] = useState("");
   const [ok, setOk] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(name, email, password, secret);
-    axios
-      .post("http://localhost:8000/api/register", {
+    try {
+      // console.log(name, email, password, secret);
+      const { data } = await axios.post("http://localhost:8000/api/register", {
         name,
         email,
         password,
         secret,
-      })
-      .then((res) => setOk(res.data.ok))
-      .catch((err) => toast(err.response.data));
+      });
+      setOk(data.ok);
+    } catch (err) {
+      toast.error(err.response.data);
+    }
   };
 
   return (

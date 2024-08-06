@@ -10,7 +10,7 @@ export const hashPassword = (password) => {
         if (err) {
           reject(err);
         }
-        resolver(hash);
+        resolve(hash);
       });
     });
   });
