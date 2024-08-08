@@ -9,7 +9,8 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [secret, setSecret] = useState("");
-  const [ok, setOk] = useState(false);
+  // const [ok, setOk] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +22,8 @@ const Register = () => {
         password,
         secret,
       });
-      setOk(data.ok);
+      // setOk(data.ok);
+      setIsModalOpen(true); // Show the modal on successful registration
     } catch (err) {
       // toast.error(err.response.data);
       const errorMessage = err.response?.data || "An unexpected error occurred";
@@ -108,10 +110,14 @@ const Register = () => {
         <div className='col'>
           <Modal
             title='Congratulations!'
-            visible={ok}
-            onCancel={() => setOk(false)}
-            footer='null'>
-            {" "}
+            // visible={ok}
+            // onCancel={() => setOk(false)}
+            // footer='null'>
+            // {" "}
+            open={isModalOpen} // Updated prop
+            onCancel={() => setIsModalOpen(false)}
+            footer={null} // Changed to null for better handling
+          >
             <p>You have successfully registered.</p>
             <Link href='/login' className='btn btn-primary btn-sm'>
               Login
