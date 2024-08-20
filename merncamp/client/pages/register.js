@@ -104,7 +104,9 @@ const Register = () => {
               />
             </div>
             <div className='form-group p-2'>
-              <button className='btn btn-primary col-12'>Submit</button>
+              <button type='submit' className='btn btn-primary col-12'>
+                Submit
+              </button>
             </div>
           </form>
         </div>
@@ -122,8 +124,8 @@ const Register = () => {
             footer={null} // Changed to null for better handling
           >
             <p>You have successfully registered.</p>
-            <Link href='/login' className='btn btn-primary btn-sm'>
-              Login
+            <Link href='/login'>
+              <a className='btn btn-primary btn-sm'>Login</a>
             </Link>
           </Modal>
         </div>
