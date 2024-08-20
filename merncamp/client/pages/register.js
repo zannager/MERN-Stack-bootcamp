@@ -16,12 +16,15 @@ const Register = () => {
     e.preventDefault();
     try {
       // console.log(name, email, password, secret);
-      const { data } = await axios.post("http://localhost:8000/api/register", {
-        name,
-        email,
-        password,
-        secret,
-      });
+      const { data } = await axios.post(
+        `${process.env.NEXT_PUBLIC_API}/register`,
+        {
+          name,
+          email,
+          password,
+          secret,
+        }
+      );
       // setOk(data.ok);
       setIsModalOpen(true); // Show the modal on successful registration
     } catch (err) {
